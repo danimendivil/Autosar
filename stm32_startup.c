@@ -2,10 +2,19 @@
 #include <stdint.h>
 
 #define SRAM_START  0x20000000U
-#define SRAM_SIZE   (128*1024) //128KB
+#define SRAM_SIZE   (144*1024) //128KB
 #define SRAM_END    (SRAM_START) + (SRAM_SIZE)
 
 #define STACK_START     SRAM_END
+
+int main(void);
+
+extern uint32_t _etext;
+extern uint32_t _sdata;
+extern uint32_t _edata;
+
+extern uint32_t _sbss;
+extern uint32_t _ebss ;
 
 void Reset_Handler  (void);
 void NMI_Handler (void)                         __attribute__((weak,alias("Default_Handler")));
@@ -105,7 +114,25 @@ void Default_Handler (void)
 
 void Reset_Handler (void)
 {
+    //copy .data section to SRAM
+    uint32_t size = (&_edata) - (&_sdata);
 
+    uint8_t *pDst = (uint8_t*)&_sdata;   //SRAM
+    uint8_t *pSrc = (uint8_t*)&_etext;   //FLASH 
+
+    for(uint32_t i = 0; i < size;i++)
+    {
+        *pDst++= *pSrc++;
+    }
+
+    //Init the .bss section to zero in SRAM
+    size = &_ebss - &_sbss;
+    pDst = (uint8_t*)&_sbss;
+    for(uint32_t i = 0; i < size;i++)
+    {
+        *pDst++= 0;
+    }
+    main();
 }
 
 
