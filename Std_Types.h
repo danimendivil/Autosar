@@ -21,6 +21,7 @@ typedef struct
     uint8 sw_major_version;      /*!< Major version number of the software component*/
     uint8 sw_minor_version;      /*!< Minor version number of the software component*/
     uint8 sw_patch_version;      /*!< Patch version number of the software component*/
+    
 } Std_VersionInfoType;
 
 /**
@@ -48,6 +49,7 @@ typedef struct
 {
     Std_TransformerErrorCode errorCode;                /*!< Represent the error*/
     Std_TransformerClass transformerClass;             /*!< Represent where the error ocurred*/
+
 } Std_TransformerError;
 
 /**
@@ -70,6 +72,7 @@ typedef struct
 {
     Std_TransformerForwardCode errorCode;                /*!< data type represents the transformer status.*/
     Std_TransformerClass transformerClass;             /*!< Represent where the error ocurred*/
+
 } Std_TransformerForward;
 
 /**
@@ -101,5 +104,5 @@ const uint8* buffer,                    /*!< Buffer allocated by the RTE, where 
 uint32 bufferLength,                    /*!< Length of the buffer*/
 Std_MessageTypeType* messageType,       /*!< Canonical representation of the message type (extracted from the transformers protocol header).*/
 Std_MessageResultType* messageResult    /*!< Canonical representation of the message result type (extracted from the transformers protocol header).*/
-)
+);
 
