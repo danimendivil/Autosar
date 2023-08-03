@@ -126,8 +126,7 @@ typedef const void *ConstVoidPtr;         /*!< standar type to declare a const v
  * Symbols to specify the byte order to see if Within uint16, the high byte is located before
  * the low byte or the way around
 /**@{*/
-#define HIGH_BYTE_FIRST      0 /*!< Within uint16, the high byte is located before the low byte */
-                                    
+#define HIGH_BYTE_FIRST      0 /*!< Within uint16, the high byte is located before the low byte */                            
 #define LOW_BYTE_FIRST       1 /*!< Within uint16, the low byte is located before the high byte. */
 /**@}*/
 
