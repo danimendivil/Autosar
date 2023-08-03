@@ -12,7 +12,7 @@ stm32_startup.o:stm32_startup.c
 	$(CC) -c $(CFLAGS) -o $@ $^ 
 
 clean:
-	rm -rf *.o* *.elf*
+	rm -rf *.o* *.elf* *.map*
 
 final.elf:main.o stm32_startup.o
 	$(CC) $(LDFLAGS) -o $@ $^ 
