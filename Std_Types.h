@@ -106,3 +106,94 @@ Std_MessageTypeType* messageType,       /*!< Canonical representation of the mes
 Std_MessageResultType* messageResult    /*!< Canonical representation of the message result type (extracted from the transformers protocol header).*/
 );
 
+/**
+ * @name    Safety Transformer Error Codes
+ * @reqs    SRS_Xfrm_00002
+ *
+ * Symbols to specify transformers error codes
+ * 
+ */
+/**@{*/
+#define E_OK                      0x00u               /*!< No specific error to be injected */
+#define E_SAFETY_INVALID_REP      0x01u               /*!< Repeat the last used sequence number */
+#define E_SAFETY_INVALID_CRC      0x02u               /*!< Generate a deliberately wrong CRC */
+#define E_SAFETY_INVALID_SEQ      0x03u               /*!< Use a wrong sequence number */
+/**@}*/
+
+/**
+ * @name    E_OK, E_NOT_OK
+ * @reqs    SWS_Std_00006
+ *
+ * Symbols to specify if an error has ocurred or not
+ * 
+ */
+/**@{*/
+#ifndef STATUSTYPEDEFINED
+#define STATUSTYPEDEFINED
+#define E_OK 0x00u                /*!< There is no error */
+typedef unsigned char StatusType; /* OSEK compliance */
+#endif
+#define E_NOT_OK 0x01u             /*!< Error has ocurred */
+/**@}*/
+
+/**
+ * @name    STD_HIGH, STD_LOW
+ * @reqs    SWS_Std_00007
+ *
+ * Symbols to specify The physical state 
+ * 
+ */
+/**@{*/
+#define STD_HIGH 0x01u      /*!< Physical state 5V or 3.3V */
+#define STD_LOW 0x00u       /*!< Physical state 0V */
+/**@}*/
+
+/**
+ * @name    STD_ACTIVE, STD_IDLE
+ * @reqs    SWS_Std_00013
+ *
+ * Symbols to specify The logical state 
+ * 
+ */
+/**@{*/
+#define STD_ACTIVE 0x01u        /*!< Logical state active */
+#define STD_IDLE 0x00u          /*!< Logical state idle */
+/**@}*/
+
+/**
+ * @name    STD_ON, STD_OFF
+ * @reqs    SWS_Std_00010
+ *
+ * Symbols to specify the state 
+ * 
+ */
+/**@{*/
+#define STD_ON 0x01u            /*!< State on */
+#define STD_OFF 0x00u           /*!< State off */
+/**@}*/
+
+/**
+ * @name    NULL_PTR
+ * @reqs    SWS_Std_00031
+ *
+ * Symbols to specify a null ptr
+ * 
+ */
+/**@{*/
+#define NULL_PTR ((void *)0)            /*!< Null ptr define */
+/**@}*/
+
+/**
+ * @name    STD_TRANSFORMER
+ * @reqs    SWS_Std_00026
+ *
+ * Symbols to specify possible values to Std_TransformerClass
+ * 
+ */
+/**@{*/
+#define STD_TRANSFORMER_UNSPECIFIED     0x00u               /*!< Transformer of a unspecified transformer class */
+#define STD_TRANSFORMER_SERIALIZER      0x01u               /*!< Transformer of a serializer class */
+#define STD_TRANSFORMER_SAFETY          0x02u               /*!< Transformer of a safety class */
+#define STD_TRANSFORMER_SECURITY        0x03u               /*!< Transformer of a security class. */
+#define STD_TRANSFORMER_CUSTOM          0xFFu               /*!< Transformer of a custom class not standardized by AUTOSAR. */
+/**@}*/
