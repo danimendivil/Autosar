@@ -197,3 +197,28 @@ typedef unsigned char StatusType; /* OSEK compliance */
 #define STD_TRANSFORMER_SECURITY        0x03u               /*!< Transformer of a security class. */
 #define STD_TRANSFORMER_CUSTOM          0xFFu               /*!< Transformer of a custom class not standardized by AUTOSAR. */
 /**@}*/
+
+/**
+ * @name    Std_MessageTypeType range
+ * @reqs    SWS_Std_00017
+ *
+ * Symbols to specify possible values to Std_MessageTypeType
+ * 
+ */
+/**@{*/
+#define STD_MESSAGETYPE_REQUEST       0x00u               /*!< Message type for a request message */
+#define STD_MESSAGETYPE_RESPONSE      0x01u               /*!< Message type for a response message */
+/**@}*/
+
+/**
+ * @name    Std_MessageResultType range
+ * @reqs    SWS_Std_00017
+ *
+ * Symbols to specify possible values to Std_MessageResultType
+ * 
+ */
+/**@{*/
+#define STD_MESSAGERESULT_OK         0x00u               /*!< STD_MESSAGERESULT_OK */
+#define STD_MESSAGERESULT_ERROR      0x01u               /*!< Messageresult for an ERROR response */
+/**@}*/
+
