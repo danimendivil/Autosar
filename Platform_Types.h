@@ -93,3 +93,55 @@ typedef void *VoidPtr;                    /*!< standar type to declare a void po
 
 typedef const void *ConstVoidPtr;         /*!< standar type to declare a const void pointer*/
 /**@}*/
+
+/**
+ * @name    CPU_Type
+ * @reqs    SWS_Platform_00064
+ *
+ * Symbols to specify if the processor is an 8, 16, 32 or 64 bits processor
+ */
+/**@{*/
+#define CPU_TYPE_8       0     /*!< Indicating a 8 bit processor */
+#define CPU_TYPE_16      1     /*!< Indicating a 16 bit processor */
+#define CPU_TYPE_32      2     /*!< Indicating a 32 bit processor */
+#define CPU_TYPE_64      3     /*!< Indicating a 64 bit processor */
+/**@}*/
+
+/**
+ * @name    Bit_order
+ * @reqs    SWS_Platform_00038
+ *
+ * Symbols to specify the bit order according to the CPU endianess, LSB for little endian and MSB
+ * for big endian
+ */
+/**@{*/
+#define MSB_FIRST       0 /*!< CPU with most significant bit aranged first */
+#define LSB_FIRST       1 /*!< CPU with least significant bit aranged first */
+/**@}*/
+
+/**
+ * @name    CPU_BYTE_ORDER
+ * @reqs    SWS_Platform_00039
+ *
+ * Symbols to specify the byte order to see if Within uint16, the high byte is located before
+ * the low byte or the way around
+/**@{*/
+#define HIGH_BYTE_FIRST      0 /*!< Within uint16, the high byte is located before the low byte */
+                                    
+#define LOW_BYTE_FIRST       1 /*!< Within uint16, the low byte is located before the high byte. */
+/**@}*/
+
+/**
+ * @name    TRUE_FALSE
+ * @reqs    SWS_Platform_00056
+ *
+ * Symbols to specify the boolean values
+/**@{*/
+#ifndef FALSE  
+#define FALSE      0 /*!< False value */
+#endif
+
+#ifndef TRUE                                    
+#define TRUE       1 /*!< True value */
+#endif
+/**@}*/
