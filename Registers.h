@@ -87,3 +87,25 @@ typedef struct
 #define PORTF      ( (Port_RegisterType *)PORTF_BASE )          /*!< Access to PORTF registers*/
 #define RCC        ( (RCC_RegisterType*)RCC_BASE_ADDRESS)       /*!< Access to RCC registers*/
 /**@}*/
+
+
+/**
+ * @name    Enabling and disabling GPIO port clocks.
+ *     
+ * macros to enable and disable GPIO port clocks.
+/**@{*/
+#define RCC_GPIOA_CLK_EN()      RCC->IOPENR |= 0x01u;             /*!< GPIO PORTA clock enable*/
+#define RCC_GPIOB_CLK_EN()      RCC->IOPENR |= 0x02u;             /*!< GPIO PORTB clock enable*/
+#define RCC_GPIOC_CLK_EN()      RCC->IOPENR |= 0x04u;             /*!< GPIO PORTC clock enable*/
+#define RCC_GPIOD_CLK_EN()      RCC->IOPENR |= 0x10u;             /*!< GPIO PORTD clock enable*/
+#define RCC_GPIOE_CLK_EN()      RCC->IOPENR |= 0x20u;             /*!< GPIO PORTE clock enable*/
+#define RCC_GPIOF_CLK_EN()      RCC->IOPENR |= 0x40u;             /*!< GPIO PORTF clock enable*/
+
+#define RCC_GPIOA_CLK_DIS()     RCC->IOPENR &= ~(1u << 0u);       /*!< GPIO PORTA clock disable*/
+#define RCC_GPIOB_CLK_DIS()     RCC->IOPENR &= ~(1u << 1u);       /*!< GPIO PORTB clock disable*/
+#define RCC_GPIOC_CLK_DIS()     RCC->IOPENR &= ~(1u << 2u);       /*!< GPIO PORTC clock disable*/
+#define RCC_GPIOD_CLK_DIS()     RCC->IOPENR &= ~(1u << 3u);       /*!< GPIO PORTD clock disable*/
+#define RCC_GPIOE_CLK_DIS()     RCC->IOPENR &= ~(1u << 4u);       /*!< GPIO PORTE clock disable*/
+#define RCC_GPIOF_CLK_DIS()     RCC->IOPENR &= ~(1u << 5u);       /*!< GPIO PORTF clock disable*/
+
+/**@}*/
