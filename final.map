@@ -1,0 +1,115 @@
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+FLASH            0x08000000         0x00080000         xr
+SRAM             0x20000000         0x00024000         xrw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD Build/main.o
+LOAD Build/stm32_startup.o
+
+.text           0x08000000      0x1a0
+ *(.isr_vector)
+ .isr_vector    0x08000000       0xc0 Build/stm32_startup.o
+                0x08000000                vectors
+ *(.text)
+ .text          0x080000c0       0x50 Build/main.o
+                0x080000c0                main
+ .text          0x08000110       0x90 Build/stm32_startup.o
+                0x08000110                FLASH_Handler
+                0x08000110                EXTI2_3_Handler
+                0x08000110                HardFault_Handler
+                0x08000110                USART2_LPUART2_Handler
+                0x08000110                SysTick_Handler
+                0x08000110                RTC_TAMP_Handler
+                0x08000110                I2C1_Handler
+                0x08000110                PendSV_Handler
+                0x08000110                NMI_Handler
+                0x08000110                TIM6_DAC_LPTIM1_Handler
+                0x08000110                I2C2_I2C3_Handler
+                0x08000110                WWDG_Handler
+                0x08000110                DMA1_Channel1_Handler
+                0x08000110                TIM1_CC_Handler
+                0x08000110                SPI2_SPI3_Handler
+                0x08000110                TIM17_FDCAN_IT1_Handler
+                0x08000110                EXTI4_15_Handler
+                0x08000110                USART3_4_5_6_LPUART1_Handler
+                0x08000110                TIM7_LPTIM2_Handler
+                0x08000110                TIM2_Handler
+                0x08000110                USART1_Handler
+                0x08000110                DMA1_Channel4_5_6_Handler
+                0x08000110                Default_Handler
+                0x08000110                TIM3_4_Handler
+                0x08000110                EXTI0_1_Handler
+                0x08000110                SVC_Handler
+                0x08000110                TIM14_Handler
+                0x08000110                DMA1_Channel2_3_Handler
+                0x08000110                SPI1_Handler
+                0x08000110                RCC_CRS_Handler
+                0x08000110                TIM16_FDCAN_IT0_Handler
+                0x08000110                PVD_Handler
+                0x08000110                TIM15_Handler
+                0x08000110                AES_RNG_Handler
+                0x08000110                CEC_Handler
+                0x08000110                UCPD1_UCPD2_USB_Handler
+                0x08000110                TIM1_BRK_UP_TRG_COM_Handler
+                0x08000110                ADC_COMP_Handler
+                0x08000116                Reset_Handler
+ *(.rodata)
+                0x080001a0                        . = ALIGN (0x4)
+                0x080001a0                        _etext = .
+
+.glue_7         0x080001a0        0x0
+ .glue_7        0x080001a0        0x0 linker stubs
+
+.glue_7t        0x080001a0        0x0
+ .glue_7t       0x080001a0        0x0 linker stubs
+
+.vfp11_veneer   0x080001a0        0x0
+ .vfp11_veneer  0x080001a0        0x0 linker stubs
+
+.v4_bx          0x080001a0        0x0
+ .v4_bx         0x080001a0        0x0 linker stubs
+
+.iplt           0x080001a0        0x0
+ .iplt          0x080001a0        0x0 Build/stm32_startup.o
+
+.rel.dyn        0x080001a0        0x0
+ .rel.iplt      0x080001a0        0x0 Build/stm32_startup.o
+
+.data           0x20000000        0x0 load address 0x080001a0
+                0x20000000                        _sdata = .
+ *(.data)
+ .data          0x20000000        0x0 Build/main.o
+ .data          0x20000000        0x0 Build/stm32_startup.o
+                0x20000000                        . = ALIGN (0x4)
+                0x20000000                        _edata = .
+
+.igot.plt       0x20000000        0x0 load address 0x080001a0
+ .igot.plt      0x20000000        0x0 Build/stm32_startup.o
+
+.bss            0x20000000        0x0 load address 0x080001a0
+                0x20000000                        _sbss = .
+ *(.bss)
+ .bss           0x20000000        0x0 Build/main.o
+ .bss           0x20000000        0x0 Build/stm32_startup.o
+ *(COMMON)
+                0x20000000                        . = ALIGN (0x4)
+                0x20000000                        _ebss = .
+OUTPUT(Build/final.elf elf32-littlearm)
+LOAD linker stubs
+
+.comment        0x00000000       0x1e
+ .comment       0x00000000       0x1e Build/main.o
+                                 0x1f (size before relaxing)
+ .comment       0x0000001e       0x1f Build/stm32_startup.o
+
+.ARM.attributes
+                0x00000000       0x2c
+ .ARM.attributes
+                0x00000000       0x2c Build/main.o
+ .ARM.attributes
+                0x0000002c       0x2c Build/stm32_startup.o

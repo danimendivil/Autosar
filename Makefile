@@ -3,20 +3,35 @@ MACH=cortex-m0
 CFLAGS= -c -mcpu=$(MACH) -std=gnu11 -O0
 LDFLAGS= -nostdlib -T stm32_ls.ld -Wl,-Map=final.map
 
-all:main.o stm32_startup.o final.elf
+# Directorio de construcción
+BUILD_DIR = Build
 
-main.o:main.c
-	$(CC) -c $(CFLAGS) -o $@ $^    
+# Lista de archivos fuente (agrega aquí tus archivos fuente)
+SOURCE_FILES = main.c stm32_startup.c
 
-stm32_startup.o:stm32_startup.c
-	$(CC) -c $(CFLAGS) -o $@ $^ 
+# Genera una lista de los archivos objeto basados en los nombres de los archivos fuente
+OBJECTS = $(addprefix $(BUILD_DIR)/,$(SOURCE_FILES:.c=.o))
 
+# Carpeta que contiene los archivos de cabecera
+INCLUDE_DIR = Autosar
+
+# Regla para compilar todos los archivos objeto
+all: $(BUILD_DIR)/final.elf
+
+# Regla para compilar un archivo objeto
+$(BUILD_DIR)/%.o: %.c
+	@mkdir -p $(@D)
+	$(CC) $(CFLAGS) -I$(INCLUDE_DIR) $< -o $@
+
+# Regla para crear el archivo ejecutable
+$(BUILD_DIR)/final.elf: $(OBJECTS)
+	$(CC) $(LDFLAGS) -o $@ $^
+
+# Regla para limpiar los archivos objeto y el ejecutable
 clean:
-	rm -rf *.o* *.elf* *.map*
+	rm -rf $(BUILD_DIR)
 
-final.elf:main.o stm32_startup.o
-	$(CC) $(LDFLAGS) -o $@ $^ 
-
-flash:
-	openocd -f board/st_nucleo_g0.cfg -c "program final.elf verify reset" -c shutdown
+# Regla para cargar el archivo ejecutable en el microcontrolador
+flash: $(BUILD_DIR)/final.elf
+	openocd -f board/st_nucleo_g0.cfg -c "program $^ verify reset" -c shutdown
 
