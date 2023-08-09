@@ -144,25 +144,233 @@ void test__Bfx_GetBits_uint8u8u8_uint8_bit4_bit7( void )
 /**
  * @brief   **Test set mask 0x0F**
  *
- * The test validates if the mask with value 0x0F is correctly set to a variable of value 0xF0,to pass the test
+ * The test validates if the mask with value 0x0F correctly sets the ones to a variable of value 0xF0,to pass the test
  * data should have a value of 0xFF
  */
 void test__BBfx_SetBitMask_uint8_uint8_byte0x0F( void )
 {
     uint8 Data = 0xF0;
     Bfx_SetBitMask_uint8_uint8( &Data, 0x0F );
-    TEST_ASSERT_EQUAL_HEX8_MESSAGE( Data, 0xFF, "Maske was not set right" );
+    TEST_ASSERT_EQUAL_HEX8_MESSAGE( Data, 0xFF, "Mask was not set right" );
 }
 
 /**
  * @brief   **Test set mask 0x0A**
  *
- * The test validates if the mask with value 0x0A is correctly set to a variable of value 0xF0,to pass the test
+ * The test validates if the mask with value 0x0A correctly sets the ones to a variable of value 0xF0,to pass the test
  * data should have a value of 0xFA
  */
 void test__BBfx_SetBitMask_uint8_uint8_byte0xA0( void )
 {
     uint8 Data = 0xF0;
     Bfx_SetBitMask_uint8_uint8( &Data, 0x0A );
-    TEST_ASSERT_EQUAL_HEX8_MESSAGE( Data, 0xFA, "Maske was not set right" );
+    TEST_ASSERT_EQUAL_HEX8_MESSAGE( Data, 0xFA, "Mask was not set right" );
+}
+
+/**
+ * @brief   **Test clear mask 0x05**
+ *
+ * The test validates if the mask with value 0x05 correctly sets the zeros to a variable of value 0xFF,to pass the test
+ * data should have a value of 0xFA
+ */
+void test__Bfx_ClrBitMask_uint8_uint8_byte0x05( void )
+{
+    uint8 Data = 0xFF;
+    Bfx_ClrBitMask_uint8_uint8( &Data, 0x05);
+    TEST_ASSERT_EQUAL_HEX8_MESSAGE( Data, 0xFA, "Mask was not set right" );
+}
+
+/**
+ * @brief   **Test clear mask 0x05**
+ *
+ * The test validates if the mask with value 0xAA correctly sets the zeros to a variable of value 0xFF,to pass the test
+ * data should have a value of 0x55
+ */
+void test__Bfx_ClrBitMask_uint8_uint8_byte0xAA( void )
+{
+    uint8 Data = 0xFF;
+    Bfx_ClrBitMask_uint8_uint8( &Data, 0xAA);
+    TEST_ASSERT_EQUAL_HEX8_MESSAGE( Data, 0x55, "Mask was not set right" );
+}
+
+/**
+ * @brief   **Test clearbit mask 0x05**
+ *
+ * The test validates if the mask with value 0xAA has the same bits sets to one of a variable with value 0xFF,to pass the test
+ * data should have a value of TRUE
+ */
+void test__Bfx_TstBitMask_uint8_uint8_u8_byte0xAA( void )
+{
+    uint8 Data = 0xFF;
+    Data=Bfx_TstBitMask_uint8_uint8_u8( Data, 0xAA );
+    TEST_ASSERT_EQUAL_HEX8_MESSAGE( Data, TRUE, "Function is not checking the bits correctly" );
+}
+
+/**
+ * @brief   **Test TstBit mask 0x05**
+ *
+ * The test validates if the mask with value 0xAA has the same bits sets to one of a variable with value 0x7F,to pass the test
+ * data should have a value of FALSE
+ */
+void test__Bfx_TstBitMask_uint8_uint8_u8_byte0x7F( void )
+{
+    uint8 Data = 0x7F;
+    Data=Bfx_TstBitMask_uint8_uint8_u8( Data, 0xAA );
+    TEST_ASSERT_EQUAL_HEX8_MESSAGE( Data, FALSE, "Function is not checking the bits correctly" );
+}
+
+/**
+ * @brief   **Test TstBitLnMask mask 0x10**
+ *
+ * The test validates if the mask with value 0x10 has at least one bit set to one of a variable with value 0x92,to pass the test
+ * data should have a value of TRUE
+ */
+void test__Bfx_TstBitLnMask_uint8_uint8_u8_byte0x10( void )
+{
+    uint8 Data = 0x92;
+    Data=Bfx_TstBitLnMask_uint8_uint8_u8( Data, 0x10 );
+    TEST_ASSERT_EQUAL_HEX8_MESSAGE( Data, TRUE, "Function is not checking the bits correctly" );
+}
+
+/**
+ * @brief   **Test TstBitLnMask mask 0x0F**
+ *
+ * The test validates if the mask with value 0x0F has at least one bit set to one of a variable with value 0xF0,to pass the test
+ * data should have a value of FALSE
+ */
+void test__Bfx_TstBitLnMask_uint8_uint8_u8_byte0x0F( void )
+{
+    uint8 Data = 0xF0;
+    Data=Bfx_TstBitLnMask_uint8_uint8_u8( Data, 0x0F );
+    TEST_ASSERT_EQUAL_HEX8_MESSAGE( Data, FALSE, "Function is not checking the bits correctly" );
+}
+
+/**
+ * @brief   **Test Bfx_ToggleBits mask 0xFF**
+ *
+ * The test validates if the data with value 0xFF is toggled right, to pass the test Data 
+ * should have a value of 0
+ */
+void test__Bfx_ToggleBits_uint8_byte0xFF( void )
+{
+    uint8 Data = 0xFF;
+    Bfx_ToggleBits_uint8(&Data) ;
+    TEST_ASSERT_EQUAL_HEX8_MESSAGE( Data, 0, "Function is not toggling the bits correctly" );
+}
+
+/**
+ * @brief   **Test Bfx_ToggleBits mask 0xAA**
+ *
+ * The test validates if the data with value 0xAA is toggled right, to pass the test Data 
+ * should have a value of 0x55
+ */
+void test__Bfx_ToggleBits_uint8_byte0xAA( void )
+{
+    uint8 Data = 0xAA;
+    Bfx_ToggleBits_uint8(&Data) ;
+    TEST_ASSERT_EQUAL_HEX8_MESSAGE( Data, 0x55, "Function is not toggling the bits correctly" );
+}
+
+/**
+ * @brief   **Test ToggleBitMask 0xAA**
+ *
+ * The test validates if the data with value 0xFF is toggled right acording to the mask 0xAA, to pass the test Data 
+ * should have a value of 0x55
+ */
+void test__Bfx_ToggleBitMask_u8u8_byte0xAA( void )
+{
+    uint8 Data = 0xFF;
+    Bfx_ToggleBitMask_u8u8(&Data, 0xAA);
+    TEST_ASSERT_EQUAL_HEX8_MESSAGE( Data, 0x55, "Function is not toggling the bits correctly" );
+}
+
+/**
+ * @brief   **Test ToggleBitMask 0x0A**
+ *
+ * The test validates if the data with value 0xFF is toggled right acording to the mask 0x0A, to pass the test Data 
+ * should have a value of 0xF5
+ */
+void test__Bfx_ToggleBitMask_u8u8_byte0x0A( void )
+{
+    uint8 Data = 0xFF;
+    Bfx_ToggleBitMask_u8u8(&Data, 0x0A);
+    TEST_ASSERT_EQUAL_HEX8_MESSAGE( Data, 0xF5, "Function is not toggling the bits correctly" );
+}
+
+/**
+ * @brief   **Test ShiftBitRt 0xFF **
+ *
+ * The test validates if the data with value 0xFF is shift correcty to the right to pass the test
+ * should have a value of 0x0F
+ */
+void test__Bfx_ShiftBitRt_u8u8_byte0xFF( void )
+{
+    uint8 Data = 0xFF;
+    Bfx_ShiftBitRt_u8u8(&Data, 4);
+    TEST_ASSERT_EQUAL_HEX8_MESSAGE( Data, 0x0F, "Data was not shift to the right" );
+}
+
+/**
+ * @brief   **Test ShiftBitRt 0xA0 **
+ *
+ * The test validates if the data with value 0xA0 is shift correcty to the right to pass the test
+ * should have a value of 0x0A
+ */
+void test__Bfx_ShiftBitRt_u8u8_byte0xA0( void )
+{
+    uint8 Data = 0xA0;
+    Bfx_ShiftBitRt_u8u8(&Data, 4);
+    TEST_ASSERT_EQUAL_HEX8_MESSAGE( Data, 0x0A, "Data was not shift to the right" );
+}
+
+/**
+ * @brief   **Test ShiftBitRt 0xAA **
+ *
+ * The test validates if the data with value 0xAA is shift correcty to the left to pass the test
+ * should have a value of 0xA0
+ */
+void test__Bfx_ShiftBitLt_u8u8_byte0xA0( void )
+{
+    uint8 Data = 0xAA;
+    Bfx_ShiftBitLt_u8u8(&Data, 4);
+    TEST_ASSERT_EQUAL_HEX8_MESSAGE( Data, 0xA0, "Data was not shift to the left" );
+}
+
+/**
+ * @brief   **Test ShiftBitRt 0x50**
+ *
+ * The test validates if the data with value 0xAA is shift correcty to the left to pass the test
+ * should have a value of 0x40
+ */
+void test__Bfx_ShiftBitLt_u8u8_byte0x50( void )
+{
+    uint8 Data = 0x50;
+    Bfx_ShiftBitLt_u8u8(&Data, 2);
+    TEST_ASSERT_EQUAL_HEX8_MESSAGE( Data, 0x40, "Data was not shift to the left" );
+}
+
+/**
+ * @brief   **Test PutBit 0x00**
+ *
+ * The test validates if the data with value 0x00 is change correcty acording to bitpin and status to pass the test
+ * should have a value of 0x80
+ */
+void test__Bfx_PutBit_u8u8_bit7( void )
+{
+    uint8 Data = 0x00;
+    Bfx_PutBit_u8u8(&Data, 7, 1);
+    TEST_ASSERT_EQUAL_HEX8_MESSAGE( Data, 0x80, "Data was not set properly" );
+}
+
+/**
+ * @brief   **Test PutBit 0xFF**
+ *
+ * The test validates if the data with value 0x00 is change correcty acording to bitpin and status to pass the test
+ * should have a value of 0xF7
+ */
+void test__Bfx_PutBit_u8u8_bit3( void )
+{
+    uint8 Data = 0xFF;
+    Bfx_PutBit_u8u8(&Data, 3, 0);
+    TEST_ASSERT_EQUAL_HEX8_MESSAGE( Data, 0xF7, "Data was not set properly" );
 }

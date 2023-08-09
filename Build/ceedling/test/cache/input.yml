@@ -22,7 +22,8 @@
   :source:
   - autosar/**
   :support: []
-  :include: []
+  :include:
+  - autosar/**
   :libraries: []
   :test_toolchain_include: []
   :release_toolchain_include: []

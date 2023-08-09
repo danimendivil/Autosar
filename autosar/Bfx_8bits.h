@@ -93,6 +93,11 @@ static inline void Bfx_ToggleBits_uint8(uint8* Data)
     *Data = ~(*Data);
 }
 
+static inline void Bfx_ToggleBitMask_u8u8(uint8* Data, uint8 Mask) 
+{
+    *Data ^= Mask;
+}
+
 static inline void Bfx_ShiftBitRt_u8u8(uint8 *Data, uint8 ShiftCnt) 
 {
     *Data >>= ShiftCnt;
@@ -101,4 +106,15 @@ static inline void Bfx_ShiftBitRt_u8u8(uint8 *Data, uint8 ShiftCnt)
 static inline void Bfx_ShiftBitLt_u8u8(uint8 *Data, uint8 ShiftCnt) 
 {
     *Data <<= ShiftCnt;
+}
+
+static inline void Bfx_PutBit_u8u8(uint8_t* Data, uint8_t BitPn, uint8_t Status) 
+{
+    if (Status != 0U) 
+    {
+        *Data |= (0x01u << BitPn);
+    } else 
+    {
+        *Data &= ~(0x01u << BitPn);
+    }
 }

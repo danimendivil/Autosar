@@ -51,12 +51,76 @@
   :line: 163
   :message: ''
   :unity_test_time: 0
+- :test: test__Bfx_ClrBitMask_uint8_uint8_byte0x05
+  :line: 176
+  :message: ''
+  :unity_test_time: 0
+- :test: test__Bfx_ClrBitMask_uint8_uint8_byte0xAA
+  :line: 189
+  :message: ''
+  :unity_test_time: 0
+- :test: test__Bfx_TstBitMask_uint8_uint8_u8_byte0xAA
+  :line: 202
+  :message: ''
+  :unity_test_time: 0
+- :test: test__Bfx_TstBitMask_uint8_uint8_u8_byte0x7F
+  :line: 215
+  :message: ''
+  :unity_test_time: 0
+- :test: test__Bfx_TstBitLnMask_uint8_uint8_u8_byte0x10
+  :line: 228
+  :message: ''
+  :unity_test_time: 0
+- :test: test__Bfx_TstBitLnMask_uint8_uint8_u8_byte0x0F
+  :line: 241
+  :message: ''
+  :unity_test_time: 0
+- :test: test__Bfx_ToggleBits_uint8_byte0xFF
+  :line: 254
+  :message: ''
+  :unity_test_time: 0
+- :test: test__Bfx_ToggleBits_uint8_byte0xAA
+  :line: 267
+  :message: ''
+  :unity_test_time: 0
+- :test: test__Bfx_ToggleBitMask_u8u8_byte0xAA
+  :line: 280
+  :message: ''
+  :unity_test_time: 0
+- :test: test__Bfx_ToggleBitMask_u8u8_byte0x0A
+  :line: 293
+  :message: ''
+  :unity_test_time: 0
+- :test: test__Bfx_ShiftBitRt_u8u8_byte0xFF
+  :line: 306
+  :message: ''
+  :unity_test_time: 0
+- :test: test__Bfx_ShiftBitRt_u8u8_byte0xA0
+  :line: 319
+  :message: ''
+  :unity_test_time: 0
+- :test: test__Bfx_ShiftBitLt_u8u8_byte0xA0
+  :line: 332
+  :message: ''
+  :unity_test_time: 0
+- :test: test__Bfx_ShiftBitLt_u8u8_byte0x50
+  :line: 345
+  :message: ''
+  :unity_test_time: 0
+- :test: test__Bfx_PutBit_u8u8_bit7
+  :line: 358
+  :message: ''
+  :unity_test_time: 0
+- :test: test__Bfx_PutBit_u8u8_bit3
+  :line: 371
+  :message: ''
+  :unity_test_time: 0
 :failures: []
 :ignores: []
 :counts:
-  :total: 12
-  :passed: 12
+  :total: 28
+  :passed: 28
   :failed: 0
   :ignored: 0
 :stdout: []
-:time: 0.004899090999970213
+:time: 0.004599556006724015

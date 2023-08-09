@@ -23,6 +23,22 @@ extern void test__Bfx_GetBits_uint8u8u8_uint8_bit6_bit7(void );
 extern void test__Bfx_GetBits_uint8u8u8_uint8_bit4_bit7(void );
 extern void test__BBfx_SetBitMask_uint8_uint8_byte0x0F(void );
 extern void test__BBfx_SetBitMask_uint8_uint8_byte0xA0(void );
+extern void test__Bfx_ClrBitMask_uint8_uint8_byte0x05(void );
+extern void test__Bfx_ClrBitMask_uint8_uint8_byte0xAA(void );
+extern void test__Bfx_TstBitMask_uint8_uint8_u8_byte0xAA(void );
+extern void test__Bfx_TstBitMask_uint8_uint8_u8_byte0x7F(void );
+extern void test__Bfx_TstBitLnMask_uint8_uint8_u8_byte0x10(void );
+extern void test__Bfx_TstBitLnMask_uint8_uint8_u8_byte0x0F(void );
+extern void test__Bfx_ToggleBits_uint8_byte0xFF(void );
+extern void test__Bfx_ToggleBits_uint8_byte0xAA(void );
+extern void test__Bfx_ToggleBitMask_u8u8_byte0xAA(void );
+extern void test__Bfx_ToggleBitMask_u8u8_byte0x0A(void );
+extern void test__Bfx_ShiftBitRt_u8u8_byte0xFF(void );
+extern void test__Bfx_ShiftBitRt_u8u8_byte0xA0(void );
+extern void test__Bfx_ShiftBitLt_u8u8_byte0xA0(void );
+extern void test__Bfx_ShiftBitLt_u8u8_byte0x50(void );
+extern void test__Bfx_PutBit_u8u8_bit7(void );
+extern void test__Bfx_PutBit_u8u8_bit3(void );
 
 
 /*=======Mock Management=====*/
@@ -104,6 +120,22 @@ int main(void)
   run_test(test__Bfx_GetBits_uint8u8u8_uint8_bit4_bit7, "test__Bfx_GetBits_uint8u8u8_uint8_bit4_bit7", 137);
   run_test(test__BBfx_SetBitMask_uint8_uint8_byte0x0F, "test__BBfx_SetBitMask_uint8_uint8_byte0x0F", 150);
   run_test(test__BBfx_SetBitMask_uint8_uint8_byte0xA0, "test__BBfx_SetBitMask_uint8_uint8_byte0xA0", 163);
+  run_test(test__Bfx_ClrBitMask_uint8_uint8_byte0x05, "test__Bfx_ClrBitMask_uint8_uint8_byte0x05", 176);
+  run_test(test__Bfx_ClrBitMask_uint8_uint8_byte0xAA, "test__Bfx_ClrBitMask_uint8_uint8_byte0xAA", 189);
+  run_test(test__Bfx_TstBitMask_uint8_uint8_u8_byte0xAA, "test__Bfx_TstBitMask_uint8_uint8_u8_byte0xAA", 202);
+  run_test(test__Bfx_TstBitMask_uint8_uint8_u8_byte0x7F, "test__Bfx_TstBitMask_uint8_uint8_u8_byte0x7F", 215);
+  run_test(test__Bfx_TstBitLnMask_uint8_uint8_u8_byte0x10, "test__Bfx_TstBitLnMask_uint8_uint8_u8_byte0x10", 228);
+  run_test(test__Bfx_TstBitLnMask_uint8_uint8_u8_byte0x0F, "test__Bfx_TstBitLnMask_uint8_uint8_u8_byte0x0F", 241);
+  run_test(test__Bfx_ToggleBits_uint8_byte0xFF, "test__Bfx_ToggleBits_uint8_byte0xFF", 254);
+  run_test(test__Bfx_ToggleBits_uint8_byte0xAA, "test__Bfx_ToggleBits_uint8_byte0xAA", 267);
+  run_test(test__Bfx_ToggleBitMask_u8u8_byte0xAA, "test__Bfx_ToggleBitMask_u8u8_byte0xAA", 280);
+  run_test(test__Bfx_ToggleBitMask_u8u8_byte0x0A, "test__Bfx_ToggleBitMask_u8u8_byte0x0A", 293);
+  run_test(test__Bfx_ShiftBitRt_u8u8_byte0xFF, "test__Bfx_ShiftBitRt_u8u8_byte0xFF", 306);
+  run_test(test__Bfx_ShiftBitRt_u8u8_byte0xA0, "test__Bfx_ShiftBitRt_u8u8_byte0xA0", 319);
+  run_test(test__Bfx_ShiftBitLt_u8u8_byte0xA0, "test__Bfx_ShiftBitLt_u8u8_byte0xA0", 332);
+  run_test(test__Bfx_ShiftBitLt_u8u8_byte0x50, "test__Bfx_ShiftBitLt_u8u8_byte0x50", 345);
+  run_test(test__Bfx_PutBit_u8u8_bit7, "test__Bfx_PutBit_u8u8_bit7", 358);
+  run_test(test__Bfx_PutBit_u8u8_bit3, "test__Bfx_PutBit_u8u8_bit3", 371);
 
   return UnityEnd();
 }
