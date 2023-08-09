@@ -1,3 +1,5 @@
+#ifndef BFX_8_bits_H__
+#define BFX_8_bits_H__
 #include "Platform_Types.h"
 
 /**
@@ -248,3 +250,5 @@ static inline void Bfx_PutBit_u8u8(uint8_t* Data, uint8_t BitPn, uint8_t Status)
         *Data &= ~(0x01u << BitPn);
     }
 }
+
+#endif

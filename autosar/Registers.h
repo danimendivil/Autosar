@@ -1,3 +1,6 @@
+#ifndef REGISTERS_H__
+#define REGISTERS_H__
+
 #include "Std_Types.h"
 
 /**
@@ -109,3 +112,5 @@ typedef struct
 #define RCC_GPIOF_CLK_DIS()     RCC->IOPENR &= ~(1u << 5u);       /*!< GPIO PORTF clock disable*/
 
 /**@}*/
+
+#endif

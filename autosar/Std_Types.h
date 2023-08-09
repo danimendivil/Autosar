@@ -1,3 +1,6 @@
+#ifndef STD_TYPES_H__
+#define STD_TYPES_H__
+
 #include "Platform_Types.h"
 
 /**
@@ -222,3 +225,4 @@ typedef unsigned char StatusType; /* OSEK compliance */
 #define STD_MESSAGERESULT_ERROR      0x01u               /*!< Messageresult for an ERROR response */
 /**@}*/
 
+#endif
