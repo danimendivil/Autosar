@@ -1,4 +1,4 @@
-#include "Registers.h"
+#include "../autosar/Registers.h"
 int main( void )
 {
     /*enable GPIOA clock*/
@@ -9,9 +9,9 @@ int main( void )
     for( ; ; ) /*infinite loop*/
     {
         /*toggle pin 5 where the led is conected*/
-        PORTC->ODR ^= (1 << 5);
+        //PORTC->ODR ^= (1 << 5);
         /*Dirty delay*/
-        for( unsigned long i=0 ; i<100000 ; i++ );
+        //for( unsigned long i=0 ; i<100000 ; i++ );
     }
     return 0;
 }

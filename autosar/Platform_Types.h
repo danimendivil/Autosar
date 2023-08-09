@@ -1,3 +1,5 @@
+#ifndef PLATFORM_TYPES_H__
+#define PLATFORM_TYPES_H__
 /**
  * @name    boolean
  * @reqs    SWS_Platform_00026
@@ -144,3 +146,5 @@ typedef const void *ConstVoidPtr;         /*!< standar type to declare a const v
 #define TRUE       1 /*!< True value */
 #endif
 /**@}*/
+
+#endif

@@ -1,0 +1,62 @@
+---
+:source:
+  :path: test
+  :file: test_Bfx_8bits.c
+:successes:
+- :test: test__Bfx_SetBit_u8u8__bit2
+  :line: 20
+  :message: ''
+  :unity_test_time: 0
+- :test: test__Bfx_SetBit_u8u8__bit7
+  :line: 33
+  :message: ''
+  :unity_test_time: 0
+- :test: test__Bfx_ClrBit_u8_bit1
+  :line: 46
+  :message: ''
+  :unity_test_time: 0
+- :test: test__Bfx_ClrBit_u8_bit3
+  :line: 59
+  :message: ''
+  :unity_test_time: 0
+- :test: test__Bfx_GetBit_u8_u8_bit3
+  :line: 72
+  :message: ''
+  :unity_test_time: 0
+- :test: test__Bfx_GetBit_u8_u8_bit4
+  :line: 85
+  :message: ''
+  :unity_test_time: 0
+- :test: test__Bfx_SetBits_uint8_u8u8u8_bit0_bit3
+  :line: 98
+  :message: ''
+  :unity_test_time: 0
+- :test: test__Bfx_SetBits_uint8_u8u8u8_bit6_bit7
+  :line: 111
+  :message: ''
+  :unity_test_time: 0
+- :test: test__Bfx_GetBits_uint8u8u8_uint8_bit6_bit7
+  :line: 124
+  :message: ''
+  :unity_test_time: 0
+- :test: test__Bfx_GetBits_uint8u8u8_uint8_bit4_bit7
+  :line: 137
+  :message: ''
+  :unity_test_time: 0
+- :test: test__BBfx_SetBitMask_uint8_uint8_byte0x0F
+  :line: 150
+  :message: ''
+  :unity_test_time: 0
+- :test: test__BBfx_SetBitMask_uint8_uint8_byte0xA0
+  :line: 163
+  :message: ''
+  :unity_test_time: 0
+:failures: []
+:ignores: []
+:counts:
+  :total: 12
+  :passed: 12
+  :failed: 0
+  :ignored: 0
+:stdout: []
+:time: 0.004899090999970213
